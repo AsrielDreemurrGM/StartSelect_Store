@@ -1,13 +1,24 @@
 import styled from 'styled-components'
+import { TagContainer } from '../Tag/styles'
 
 export const Image = styled.div`
-  padding-top: 340px;
   display: block;
   width: 100%;
   height: 560px;
   background-repeat: no-repeat;
   background-size: cover;
   font-weight: bold;
+
+  .globalContainer {
+    padding-top: 340px;
+
+    position: relative;
+  }
+
+  ${TagContainer} {
+    position: absolute;
+    top: 32px;
+  }
 `
 
 export const Title = styled.h2`
@@ -16,7 +27,7 @@ export const Title = styled.h2`
 `
 
 export const Prices = styled.p`
-  margin: 24px;
+  margin-top: 24px;
   font-size: 24px;
 
   span {
