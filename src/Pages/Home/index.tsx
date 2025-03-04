@@ -9,7 +9,7 @@ import zelda from '../../assets/images/zelda.png'
 import fifa23 from '../../assets/images/fifa23.png'
 import streetFighter from '../../assets/images/street-fighter.png'
 
-const promotions: Game[] = [
+export const promotions: Game[] = [
   {
     category: 'Ação',
     description:
@@ -52,7 +52,7 @@ const promotions: Game[] = [
   }
 ]
 
-const comingSoon: Game[] = [
+export const comingSoon: Game[] = [
   {
     category: 'Aventura',
     description:
