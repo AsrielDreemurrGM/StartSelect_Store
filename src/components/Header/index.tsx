@@ -2,13 +2,15 @@ import { Link } from 'react-router-dom'
 
 import { CartLink, HeaderBar, LinkItem, Links, Logo } from './styles'
 
-import logo from '../../assets/images/logo.png'
+import logoImg from '../../assets/images/logo.png'
 import cart from '../../assets/images/cart.svg'
 
 const Header = () => (
   <HeaderBar>
     <div>
-      <Logo src={logo} alt="STARTSELECT" />
+      <Link to="/">
+        <Logo src={logoImg} alt="STARTSELECT" />
+      </Link>
       <nav>
         <Links>
           <LinkItem>
