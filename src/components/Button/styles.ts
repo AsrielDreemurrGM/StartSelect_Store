@@ -12,7 +12,7 @@ const BaseButton = styled.button<Props>`
     ${(props) => (props.variant === 'primary' ? colors.green : colors.white)};
   border-radius: 8px;
   background-color: ${(props) =>
-    props.variant === 'primary' ? colors.green : colors.white};
+    props.variant === 'primary' ? colors.green : 'transparent'};
   color: ${colors.white};
   font-size: 16px;
   font-weight: bold;
