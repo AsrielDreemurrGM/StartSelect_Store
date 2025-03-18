@@ -1,3 +1,7 @@
+import { useState } from 'react'
+
+import { GalleryItem } from '../../Pages/Home'
+
 import {
   Action,
   CloseIcon,
@@ -14,12 +18,6 @@ import hogwarts from '../../assets/images/hogwarts-background.png'
 import playIcon from '../../assets/images/play-icon.png'
 import zoomIcon from '../../assets/images/zoom-icon.png'
 import closeIcon from '../../assets/images/close-icon.png'
-import { useState } from 'react'
-
-interface GalleryItem {
-  type: 'image' | 'video'
-  url: string
-}
 
 const mock: GalleryItem[] = [
   {

@@ -3,6 +3,7 @@ import { TagContainer } from '../Tag/styles'
 
 export const Image = styled.div`
   display: block;
+  position: relative;
   width: 100%;
   height: 560px;
   background-repeat: no-repeat;
@@ -10,6 +11,7 @@ export const Image = styled.div`
   font-weight: bold;
 
   .globalContainer {
+    z-index: 1;
     padding-top: 340px;
     display: flex;
     justify-content: space-between;
@@ -20,6 +22,16 @@ export const Image = styled.div`
   ${TagContainer} {
     position: absolute;
     top: 32px;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    content: '';
   }
 `
 

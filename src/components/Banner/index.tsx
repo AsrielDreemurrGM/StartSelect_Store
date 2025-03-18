@@ -1,30 +1,47 @@
+import { useEffect, useState } from 'react'
 import { Image, Prices, Title } from './styles'
 
-import bannerImg from '../../assets/images/spider-man-banner.png'
 import Tag from '../Tag'
 import Button from '../Button'
+import { Game } from '../../Pages/Home'
 
-const Banner = () => (
-  <Image style={{ backgroundImage: `url(${bannerImg})` }}>
-    <div className="globalContainer">
-      <Tag size="big">Destaque do dia</Tag>
-      <div>
-        <Title>Marvel Spider-Man: Miles Morales PS4 & PS5</Title>
-        <Prices>
-          De <span>R$ 250,00</span> <br />
-          por apenas R$ 99,90
-        </Prices>
+import { formatPrice } from '../../Containers/ProductList'
+
+const Banner = () => {
+  const [game, setGame] = useState<Game>()
+
+  useEffect(() => {
+    fetch('https://fake-api-tau.vercel.app/api/eplay/destaque')
+      .then((res) => res.json())
+      .then((res) => setGame(res))
+  }, [])
+
+  if (!game) {
+    return <h3>Carregando...</h3>
+  }
+
+  return (
+    <Image style={{ backgroundImage: `url(${game.media.cover})` }}>
+      <div className="globalContainer">
+        <Tag size="big">Destaque do dia</Tag>
+        <div>
+          <Title>{game.name}</Title>
+          <Prices>
+            De <span>{formatPrice(game.prices.old)}</span> <br />
+            por apenas {formatPrice(game.prices.current)}
+          </Prices>
+        </div>
+        <Button
+          variant="secondary"
+          type="link"
+          to="/product"
+          title="Clique aqui para aproveitar esta oferta"
+        >
+          Aproveitar
+        </Button>
       </div>
-      <Button
-        variant="secondary"
-        type="link"
-        to="/product"
-        title="Clique aqui para aproveitar esta oferta"
-      >
-        Aproveitar
-      </Button>
-    </div>
-  </Image>
-)
+    </Image>
+  )
+}
 
 export default Banner

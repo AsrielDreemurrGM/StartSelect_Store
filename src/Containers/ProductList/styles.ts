@@ -16,9 +16,9 @@ export const Container = styled.section<Omit<Props, 'title' | 'games'>>`
 `
 
 export const List = styled.ul`
-  display: flex;
+  display: grid;
   margin-top: 40px;
-  grid-template-columns: repeat(1fr, 4);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 24px;
 `
 
