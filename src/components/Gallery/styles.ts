@@ -67,6 +67,10 @@ export const ModalContent = styled.div`
   position: relative;
   z-index: 1;
 
+  > img {
+    width: 100%;
+  }
+
   img,
   iframe {
     display: block;
