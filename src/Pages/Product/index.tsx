@@ -1,5 +1,8 @@
 import Hero from '../../components/Hero'
 import Section from '../../components/Section'
+import Gallery from '../../components/Gallery'
+
+import galleryHogwarts from '../../assets/images/gallery-hogwarts.png'
 
 const Product = () => {
   return (
@@ -31,9 +34,7 @@ const Product = () => {
           jogo.
         </p>
       </Section>
-      <Section background="black" title="Galeria">
-        <div>fotos</div>
-      </Section>
+      <Gallery gameName="Hogwarts Legacy" defaultCover={galleryHogwarts} />
     </>
   )
 }
