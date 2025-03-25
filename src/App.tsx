@@ -4,11 +4,12 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { store } from './store'
 
-import Header from './components/Header'
 import { GlobalCSS } from './styles/styles'
 
 import AllRoutes from './routes'
+import Header from './components/Header'
 import Footer from './components/Footer'
+// import Cart from './components/Cart'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         </div>
         <AllRoutes />
         <Footer />
+        {/* <Cart /> */}
       </BrowserRouter>
     </Provider>
   )

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 import { colors } from '../../styles/styles'
 
-const BaseButton = styled.button<Props>`
+export const BaseButton = styled.button<Props>`
   padding: 8px 16px;
   border: 2px solid
     ${(props) => (props.variant === 'primary' ? colors.green : colors.white)};
