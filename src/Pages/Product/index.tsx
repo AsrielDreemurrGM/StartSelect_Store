@@ -1,25 +1,25 @@
-import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import Hero from '../../components/Hero'
 import Section from '../../components/Section'
 import Gallery from '../../components/Gallery'
 
-import { Game } from '../Home'
+import { useGetGameDetailsQuery } from '../../services/api'
 
 const Product = () => {
   const { id } = useParams()
+  const { data: game, isLoading } = useGetGameDetailsQuery(id || '')
 
-  const [game, setGame] = useState<Game>()
+  if (!id) {
+    return <h3>Jogo não encontrado</h3>
+  }
 
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/eplay/jogos/${id}`)
-      .then((res) => res.json())
-      .then((res) => setGame(res))
-  }, [id])
+  if (isLoading) {
+    return <h4>Carregando...</h4>
+  }
 
   if (!game) {
-    return <h3>Carregando...</h3>
+    return <h3>Erro ao carregar o jogo</h3>
   }
 
   return (
