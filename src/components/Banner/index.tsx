@@ -3,7 +3,7 @@ import { Image, Prices, Title } from './styles'
 import Tag from '../Tag'
 import Button from '../Button'
 
-import { formatPrice } from '../../Containers/ProductList'
+import { formatPrice } from '../../utils/utils'
 
 import { useGetFeaturedGameQuery } from '../../services/api'
 

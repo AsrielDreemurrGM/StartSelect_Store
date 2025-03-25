@@ -9,7 +9,7 @@ import { GlobalCSS } from './styles/styles'
 import AllRoutes from './routes'
 import Header from './components/Header'
 import Footer from './components/Footer'
-// import Cart from './components/Cart'
+import Cart from './components/Cart'
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         </div>
         <AllRoutes />
         <Footer />
-        {/* <Cart /> */}
+        <Cart />
       </BrowserRouter>
     </Provider>
   )
