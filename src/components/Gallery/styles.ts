@@ -4,6 +4,7 @@ import { colors } from '../../styles/styles'
 export const Items = styled.ul`
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
 `
 
 export const Action = styled.div`
@@ -11,11 +12,12 @@ export const Action = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 150px;
   background-color: rgba(0, 0, 0, 0.73);
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 8px;
 `
 
 export const Item = styled.li`
