@@ -10,12 +10,12 @@ import { useGetFeaturedGameQuery } from '../../services/api'
 const Banner = () => {
   const { data: game, isLoading } = useGetFeaturedGameQuery()
 
-  if (!game) {
-    return <h3>Erro ao carregar o jogo</h3>
-  }
-
   if (isLoading) {
     return <h3>Carregando...</h3>
+  }
+
+  if (!game) {
+    return <h3>Erro ao carregar o jogo</h3>
   }
 
   return (
