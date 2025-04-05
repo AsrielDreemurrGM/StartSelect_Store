@@ -4,8 +4,9 @@ import { colors } from '../../styles/styles'
 import { HashLink } from 'react-router-hash-link'
 
 export const Container = styled.footer`
-  padding: 32px 0;
   background-color: ${colors.gray};
+  padding: 32px 0;
+  margin-top: 40px;
 `
 
 export const Title = styled.h4`
