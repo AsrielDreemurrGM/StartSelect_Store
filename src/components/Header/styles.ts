@@ -83,8 +83,10 @@ export const CartButton = styled.a`
     margin-left: 16px;
   }
 
-  @media (max-width: ${breakpoints.tablet}) {
-    span {
+  span {
+    margin-left: 6px;
+
+    @media (max-width: ${breakpoints.tablet}) {
       display: none;
     }
   }
