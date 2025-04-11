@@ -38,4 +38,8 @@ export const GlobalCSS = createGlobalStyle`
       max-width: 80%;
     }
   }
+
+  .margin-top {
+    margin-top: 24px;
+  }
 `
