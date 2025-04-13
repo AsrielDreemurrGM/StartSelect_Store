@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
 
 import { InputGroup, Row, TabButton } from './styles'
 
@@ -8,9 +10,6 @@ import Card from '../../components/Card'
 import barcode from '../../assets/images/barcode.png'
 import creditCard from '../../assets/images/credit-card.png'
 
-import { useFormik } from 'formik'
-
-import * as Yup from 'yup'
 import { usePurchaseMutation } from '../../services/api'
 
 const Checkout = () => {

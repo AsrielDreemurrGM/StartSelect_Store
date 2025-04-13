@@ -21,6 +21,7 @@ export const Action = styled.div`
 `
 
 export const Item = styled.li`
+  cursor: zoom-in;
   position: relative;
 
   > img {
@@ -32,7 +33,6 @@ export const Item = styled.li`
   }
 
   &:hover {
-    cursor: pointer;
     ${Action} {
       background-color: rgba(0, 0, 0, 0.73);
     }
