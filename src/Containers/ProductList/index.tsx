@@ -3,7 +3,7 @@ import Product from '../../components/Product'
 
 import { Game } from '../../Pages/Home'
 
-import { formatPrice } from '../../utils/utils'
+import { convertToBRL } from '../../utils/utils'
 
 export type Props = {
   title: string
@@ -25,7 +25,7 @@ const ProductList = ({ id, title, background, games }: Props) => {
     }
 
     if (game.prices.current) {
-      tags.push(formatPrice(game.prices.current))
+      tags.push(convertToBRL(game.prices.current))
     }
 
     return tags

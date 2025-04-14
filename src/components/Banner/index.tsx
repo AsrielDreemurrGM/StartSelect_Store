@@ -3,7 +3,7 @@ import { Image, Prices, Title } from './styles'
 import Tag from '../Tag'
 import Button from '../Button'
 
-import { formatPrice } from '../../utils/utils'
+import { convertToBRL } from '../../utils/utils'
 
 import { useGetFeaturedGameQuery } from '../../services/api'
 
@@ -25,8 +25,8 @@ const Banner = () => {
         <div>
           <Title>{game.name}</Title>
           <Prices>
-            De <span>{formatPrice(game.prices.old)}</span> <br />
-            por apenas {formatPrice(game.prices.current)}
+            De <span>{convertToBRL(game.prices.old)}</span> <br />
+            por apenas {convertToBRL(game.prices.current)}
           </Prices>
         </div>
         <Button

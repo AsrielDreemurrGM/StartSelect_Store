@@ -1,81 +1,81 @@
-import { Container, FooterSection, Link, Links, Title } from './styles'
+import * as S from './styles'
 
 const currentYear = new Date().getFullYear()
 
 const Footer = () => (
-  <Container>
+  <S.Container>
     <div className="globalContainer">
-      <FooterSection>
-        <Title>Categorias</Title>
-        <Links>
+      <S.FooterSection>
+        <S.Title>Categorias</S.Title>
+        <S.Links>
           <li>
-            <Link
+            <S.Link
               title="Clique aqui para acessar jogos de RPG"
               to="/categories#rpg"
             >
               RPG
-            </Link>
+            </S.Link>
           </li>
           <li>
-            <Link
+            <S.Link
               title="Clique aqui para acessar jogos de ação"
               to="/categories#action"
             >
               Ação
-            </Link>
+            </S.Link>
           </li>
           <li>
-            <Link
+            <S.Link
               title="Clique aqui para acessar jogos de Esportes"
               to="/categories#sports"
             >
               Esportes
-            </Link>
+            </S.Link>
           </li>
           <li>
-            <Link
+            <S.Link
               title="Clique aqui para acessar jogos de Simulação"
               to="/categories#simulation"
             >
               Simulação
-            </Link>
+            </S.Link>
           </li>
           <li>
-            <Link
+            <S.Link
               title="Clique aqui para acessar jogos de Luta"
               to="/categories#fighting"
             >
               Luta
-            </Link>
+            </S.Link>
           </li>
-        </Links>
-      </FooterSection>
-      <FooterSection>
-        <Title>Acesso Rápido</Title>
-        <Links>
+        </S.Links>
+      </S.FooterSection>
+      <S.FooterSection>
+        <S.Title>Acesso Rápido</S.Title>
+        <S.Links>
           <li>
-            <Link
+            <S.Link
               title="Clique aqui para acessar a seção de Promoções"
               to="/#on-sale"
             >
               Promoções
-            </Link>
+            </S.Link>
           </li>
           <li>
-            <Link
+            <S.Link
               title="Clique aqui para acessar a seção de Em Breve"
               to="/#coming-soon"
             >
               Em breve
-            </Link>
+            </S.Link>
           </li>
-        </Links>
-      </FooterSection>
+        </S.Links>
+      </S.FooterSection>
       <p>
         {currentYear} - &copy; StartSelect Store Todos os direitos reservados
       </p>
     </div>
-  </Container>
+  </S.Container>
 )
 
 export default Footer

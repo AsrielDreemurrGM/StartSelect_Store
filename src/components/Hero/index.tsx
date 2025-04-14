@@ -1,12 +1,6 @@
 import { useDispatch } from 'react-redux'
 
-import {
-  Banner,
-  InformationWrapper,
-  OldPrice,
-  PriceWrapper,
-  Title
-} from './styles'
+import * as S from './styles'
 
 import { Game } from '../../Pages/Home'
 
@@ -15,7 +9,7 @@ import Button from '../Button'
 
 import { add, open } from '../../store/reducers/cart'
 
-import { formatPrice } from '../../utils/utils'
+import { convertToBRL } from '../../utils/utils'
 
 type Props = {
   game: Game
@@ -30,20 +24,22 @@ const Hero = ({ game }: Props) => {
   }
 
   return (
-    <Banner style={{ backgroundImage: `url(${game.media.cover})` }}>
+    <S.Banner style={{ backgroundImage: `url(${game.media.cover})` }}>
       <div className="globalContainer">
         <div>
           <Tag>{game.details.category}</Tag>
           <Tag>{game.details.system}</Tag>
         </div>
-        <InformationWrapper>
-          <Title>{game.name}</Title>
-          <PriceWrapper>
+        <S.InformationWrapper>
+          <S.Title>{game.name}</S.Title>
+          <S.PriceWrapper>
             {game.prices.discount && (
-              <OldPrice>De {formatPrice(game.prices.old)}</OldPrice>
+              <S.OldPrice>De {convertToBRL(game.prices.old)}</S.OldPrice>
             )}
-            {game.prices.current && <>Por {formatPrice(game.prices.current)}</>}
-          </PriceWrapper>
+            {game.prices.current && (
+              <>Por {convertToBRL(game.prices.current)}</>
+            )}
+          </S.PriceWrapper>
           {game.prices.current && (
             <Button
               onClick={addToCart}
@@ -54,9 +50,9 @@ const Hero = ({ game }: Props) => {
               Adicionar ao carrinho
             </Button>
           )}
-        </InformationWrapper>
+        </S.InformationWrapper>
       </div>
-    </Banner>
+    </S.Banner>
   )
 }
 

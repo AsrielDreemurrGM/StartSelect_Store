@@ -2,19 +2,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link'
 
-import {
-  CartButton,
-  Hamburger,
-  HeaderBar,
-  LinkItem,
-  Links,
-  Logo,
-  HeaderRow,
-  NavMobile
-} from './styles'
+import * as S from './styles'
 
 import logoImg from '../../assets/images/logo.png'
-import cart from '../../assets/images/cart.svg'
+import cartIcon from '../../assets/images/cart.svg'
 
 import { open } from '../../store/reducers/cart'
 import { RootReducer } from '../../store'
@@ -30,55 +21,55 @@ const Header = () => {
   }
 
   return (
-    <HeaderBar>
-      <HeaderRow>
+    <S.HeaderBar>
+      <S.HeaderRow>
         <div>
-          <Hamburger onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <S.Hamburger onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <span />
             <span />
             <span />
-          </Hamburger>
+          </S.Hamburger>
           <Link to="/">
-            <Logo src={logoImg} alt="STARTSELECT" />
+            <S.Logo src={logoImg} alt="STARTSELECT" />
           </Link>
           <nav>
-            <Links>
-              <LinkItem>
+            <S.Links>
+              <S.LinkItem>
                 <Link
                   title="Clique aqui para acessar a Página de Categorias"
                   to="/categories"
                 >
                   Categorias
                 </Link>
-              </LinkItem>
-              <LinkItem>
+              </S.LinkItem>
+              <S.LinkItem>
                 <HashLink
                   title="Clique aqui para acessar a Seção de Em Breve"
                   to="/#coming-soon"
                 >
                   Em Breve
                 </HashLink>
-              </LinkItem>
-              <LinkItem>
+              </S.LinkItem>
+              <S.LinkItem>
                 <HashLink
                   title="Clique aqui para acessar a Seção de Promoções"
                   to="/#promotions"
                 >
                   Promoções
                 </HashLink>
-              </LinkItem>
-            </Links>
+              </S.LinkItem>
+            </S.Links>
           </nav>
         </div>
-        <CartButton onClick={openCart}>
+        <S.CartButton onClick={openCart}>
           {items.length}
           <span>- Produto(s)</span>
-          <img src={cart} alt="Carrinho" />
-        </CartButton>
-      </HeaderRow>
-      <NavMobile className={isMenuOpen ? 'is-open' : ''}>
-        <Links>
-          <LinkItem>
+          <img src={cartIcon} alt="Carrinho" />
+        </S.CartButton>
+      </S.HeaderRow>
+      <S.NavMobile className={isMenuOpen ? 'is-open' : ''}>
+        <S.Links>
+          <S.LinkItem>
             <Link
               title="Clique aqui para acessar a Página de Categorias"
               to="/categories"
@@ -86,8 +77,8 @@ const Header = () => {
             >
               Categorias
             </Link>
-          </LinkItem>
-          <LinkItem>
+          </S.LinkItem>
+          <S.LinkItem>
             <HashLink
               title="Clique aqui para acessar a Seção de Em Breve"
               to="/#coming-soon"
@@ -95,8 +86,8 @@ const Header = () => {
             >
               Em Breve
             </HashLink>
-          </LinkItem>
-          <LinkItem>
+          </S.LinkItem>
+          <S.LinkItem>
             <HashLink
               title="Clique aqui para acessar a Seção de Promoções"
               to="/#promotions"
@@ -104,10 +95,10 @@ const Header = () => {
             >
               Promoções
             </HashLink>
-          </LinkItem>
-        </Links>
-      </NavMobile>
-    </HeaderBar>
+          </S.LinkItem>
+        </S.Links>
+      </S.NavMobile>
+    </S.HeaderBar>
   )
 }
 

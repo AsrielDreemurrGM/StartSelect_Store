@@ -2,15 +2,7 @@ import { useState } from 'react'
 
 import { GalleryItem } from '../../Pages/Home'
 
-import {
-  Action,
-  CloseIcon,
-  Item,
-  Items,
-  Modal,
-  ModalContent,
-  ModalHeader
-} from './styles'
+import * as S from './styles'
 import Section from '../Section'
 
 import playIcon from '../../assets/images/play-icon.png'
@@ -54,9 +46,9 @@ const Gallery = ({ defaultCover, gameName, items }: Props) => {
   return (
     <>
       <Section background="black" title="Galeria">
-        <Items>
+        <S.Items>
           {items.map((item, index) => (
-            <Item
+            <S.Item
               key={item.url}
               onClick={() => {
                 setModal({
@@ -70,34 +62,34 @@ const Gallery = ({ defaultCover, gameName, items }: Props) => {
                 src={getMediaCover(item)}
                 alt={`Mídia ${index + 1} de ${gameName}`}
               />
-              <Action>
+              <S.Action>
                 <img
                   src={getMediaIcon(item)}
                   alt="Clique para maximizar a imagem"
                 ></img>
-              </Action>
-            </Item>
+              </S.Action>
+            </S.Item>
           ))}
-        </Items>
+        </S.Items>
       </Section>
-      <Modal className={modal.isVisible ? 'visible' : ''}>
-        <ModalContent className="globalContainer">
-          <ModalHeader>
+      <S.Modal className={modal.isVisible ? 'visible' : ''}>
+        <S.ModalContent className="globalContainer">
+          <S.ModalHeader>
             <h4>{gameName}</h4>
-            <CloseIcon
+            <S.CloseIcon
               src={closeIcon}
               alt="Ícone de fechar"
-              onClick={() => closeModal()}
+              onClick={closeModal}
             />
-          </ModalHeader>
+          </S.ModalHeader>
           {modal.type === 'image' ? (
             <img src={modal.url} />
           ) : (
             <iframe src={modal.url} />
           )}
-        </ModalContent>
-        <div onClick={() => closeModal()} className="overlay"></div>
-      </Modal>
+        </S.ModalContent>
+        <div onClick={closeModal} className="overlay"></div>
+      </S.Modal>
     </>
   )
 }
