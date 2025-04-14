@@ -78,6 +78,7 @@ export const ModalContent = styled.div`
     display: block;
     max-width: 960px;
     max-height: 460px;
+    object-fit: cover;
   }
 
   iframe {
@@ -91,6 +92,11 @@ export const ModalHeader = styled.header`
   display: flex;
   justify-content: space-between;
   margin-bottom: 24px;
+
+  img {
+    height: 16px;
+    width: 16px;
+  }
 `
 
 export const GameName = styled.h4`

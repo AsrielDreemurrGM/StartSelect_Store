@@ -10,7 +10,7 @@ type RowProps = {
 }
 
 type TabButtonProps = {
-  isActive: boolean
+  isActive?: boolean
 }
 
 export const Row = styled.div<RowProps>`

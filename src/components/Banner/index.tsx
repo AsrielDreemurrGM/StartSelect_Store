@@ -2,20 +2,17 @@ import { Image, Prices, Title } from './styles'
 
 import Tag from '../Tag'
 import Button from '../Button'
+import Loader from '../Loader'
 
 import { convertToBRL } from '../../utils/utils'
 
 import { useGetFeaturedGameQuery } from '../../services/api'
 
 const Banner = () => {
-  const { data: game, isLoading } = useGetFeaturedGameQuery()
-
-  if (isLoading) {
-    return <h3>Carregando...</h3>
-  }
+  const { data: game } = useGetFeaturedGameQuery()
 
   if (!game) {
-    return <h3>Erro ao carregar o jogo</h3>
+    return <Loader />
   }
 
   return (

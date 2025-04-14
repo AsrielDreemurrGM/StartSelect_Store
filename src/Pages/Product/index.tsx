@@ -3,23 +3,20 @@ import { useParams } from 'react-router-dom'
 import Hero from '../../components/Hero'
 import Section from '../../components/Section'
 import Gallery from '../../components/Gallery'
+import Loader from '../../components/Loader'
 
 import { useGetGameDetailsQuery } from '../../services/api'
 
+type GameParams = {
+  id: string
+}
+
 const Product = () => {
-  const { id } = useParams()
-  const { data: game, isLoading } = useGetGameDetailsQuery(id || '')
-
-  if (!id) {
-    return <h3>Jogo não encontrado</h3>
-  }
-
-  if (isLoading) {
-    return <h4>Carregando...</h4>
-  }
+  const { id } = useParams() as GameParams
+  const { data: game } = useGetGameDetailsQuery(id)
 
   if (!game) {
-    return <h3>Erro ao carregar o jogo</h3>
+    return <Loader />
   }
 
   return (
