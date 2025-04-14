@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { Navigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
@@ -11,10 +13,22 @@ import barcode from '../../assets/images/barcode.png'
 import creditCard from '../../assets/images/credit-card.png'
 
 import { usePurchaseMutation } from '../../services/api'
+import { RootReducer } from '../../store'
+import { convertToBRL, getTotalPrice } from '../../utils/utils'
+
+type Installment = {
+  quantity: number
+  amount: number
+  formattedAmount: string
+}
 
 const Checkout = () => {
   const [payWithCard, setPayWithcard] = useState(false)
   const [purchase, { data, isSuccess }] = usePurchaseMutation()
+  const { items } = useSelector((state: RootReducer) => state.cart)
+  const [installments, setInstallments] = useState<Installment[]>([])
+
+  const totalPrice = getTotalPrice(items)
 
   const form = useFormik({
     initialValues: {
@@ -119,6 +133,29 @@ const Checkout = () => {
 
     return hasError
     return ''
+  }
+
+  useEffect(() => {
+    const calculateInstallments = () => {
+      const installmentsArray: Installment[] = []
+      for (let i = 1; i <= 6; i++) {
+        installmentsArray.push({
+          quantity: i,
+          amount: totalPrice / i,
+          formattedAmount: convertToBRL(totalPrice / i)
+        })
+      }
+
+      return installmentsArray
+    }
+
+    if (totalPrice > 0) {
+      setInstallments(calculateInstallments)
+    }
+  }, [totalPrice])
+
+  if (items.length === 0) {
+    return <Navigate to="/" />
   }
 
   return (
@@ -370,9 +407,12 @@ const Checkout = () => {
                           checkInputError('installments') ? 'error' : ''
                         }
                       >
-                        <option>1x de R$ 200,00</option>
-                        <option>2x de R$ 200,00</option>
-                        <option>3x de R$ 200,00</option>
+                        {installments.map((installment) => (
+                          <option key={installment.quantity}>
+                            {installment.quantity}x de{' '}
+                            {installment.formattedAmount}
+                          </option>
+                        ))}
                       </select>
                     </InputGroup>
                   </Row>
