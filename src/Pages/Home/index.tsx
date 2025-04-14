@@ -47,14 +47,14 @@ const Home = () => {
       <ProductList
         games={onSaleGames}
         title="Promoções"
-        background="gray"
+        $background="gray"
         id="on-sale"
         isLoading={isLoadingSaleGames}
       />
       <ProductList
         games={comingSoonGames}
         title="Em Breve"
-        background="black"
+        $background="black"
         id="coming-soon"
         isLoading={isLoadingComingSoonGames}
       />

@@ -8,13 +8,13 @@ import Loader from '../../components/Loader'
 
 export type Props = {
   title: string
-  background: 'gray' | 'black'
+  $background: 'gray' | 'black'
   games?: Game[]
   id?: string
   isLoading: boolean
 }
 
-const ProductList = ({ id, title, background, games, isLoading }: Props) => {
+const ProductList = ({ id, title, $background, games, isLoading }: Props) => {
   const getGameTags = (game: Game) => {
     const tags = []
 
@@ -38,7 +38,7 @@ const ProductList = ({ id, title, background, games, isLoading }: Props) => {
   }
 
   return (
-    <Container id={id} background={background}>
+    <Container id={id} $background={$background}>
       <div className="globalContainer">
         <h2>{title}</h2>
         <List>

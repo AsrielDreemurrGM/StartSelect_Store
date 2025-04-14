@@ -24,35 +24,35 @@ const Categories = () => {
       <ProductList
         games={actionGames}
         title="Ação"
-        background="black"
+        $background="black"
         id="action"
         isLoading={isLoadingAction}
       />
       <ProductList
         games={sportsGames}
         title="Esportes"
-        background="gray"
+        $background="gray"
         id="sports"
         isLoading={isLoadingSports}
       />
       <ProductList
         games={fightingGames}
         title="Luta"
-        background="black"
+        $background="black"
         id="fighting"
         isLoading={isLoadingFighting}
       />
       <ProductList
         games={rpgGames}
         title="RPG"
-        background="gray"
+        $background="gray"
         id="rpg"
         isLoading={isLoadingRpg}
       />
       <ProductList
         games={simulationGames}
         title="Simulação"
-        background="black"
+        $background="black"
         id="simulation"
         isLoading={isLoadingSimulation}
       />

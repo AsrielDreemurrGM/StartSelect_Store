@@ -5,15 +5,15 @@ import { breakpoints, colors } from '../../styles/styles'
 import { Card } from '../../components/Product/styles'
 
 export const Container = styled.section<
-  Omit<Props, 'title' | 'games' | 'isLoading'>
+  Omit<Props, 'title' | 'games' | 'isLoading' | 'background'>
 >`
   padding: 32px 0;
   background-color: ${(props) =>
-    props.background === 'black' ? colors.black : colors.gray};
+    props.$background === 'black' ? colors.black : colors.gray};
 
   ${Card} {
     background-color: ${(props) =>
-      props.background === 'gray' ? colors.black : colors.gray};
+      props.$background === 'gray' ? colors.black : colors.gray};
   }
 `
 
