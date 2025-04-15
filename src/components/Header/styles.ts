@@ -75,9 +75,10 @@ export const LinkItem = styled.li`
   }
 `
 
-export const CartButton = styled.a`
+export const CartButton = styled.span`
   display: flex;
   cursor: pointer;
+  font-weight: bold;
 
   img {
     margin-left: 16px;

@@ -42,6 +42,13 @@ export const Sidebar = styled.aside`
     max-width: 100%;
     width: 100%;
   }
+
+  .empty-cart {
+    font-size: 14px;
+    text-align: center;
+    line-height: 22px;
+    color: ${colors.white};
+  }
 `
 
 export const Prices = styled.p`
