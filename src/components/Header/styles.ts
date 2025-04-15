@@ -17,6 +17,10 @@ export const HeaderBar = styled.header`
   background-color: ${colors.gray};
   border-radius: 16px;
 
+  h1 {
+    line-height: 0;
+  }
+
   a {
     font-weight: bold;
     color: ${colors.white};

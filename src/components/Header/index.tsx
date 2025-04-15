@@ -30,7 +30,9 @@ const Header = () => {
             <span />
           </S.Hamburger>
           <Link to="/">
-            <S.Logo src={logoImg} alt="STARTSELECT" />
+            <h1>
+              <S.Logo src={logoImg} alt="STARTSELECT" />
+            </h1>
           </Link>
           <nav>
             <S.Links>

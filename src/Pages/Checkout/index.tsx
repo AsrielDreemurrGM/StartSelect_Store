@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 import InputMask from 'react-input-mask-next'
 
@@ -15,8 +15,9 @@ import barcode from '../../assets/images/barcode.png'
 import creditCard from '../../assets/images/credit-card.png'
 
 import { usePurchaseMutation } from '../../services/api'
-import { RootReducer } from '../../store'
 import { convertToBRL, getTotalPrice } from '../../utils/utils'
+import { RootReducer } from '../../store'
+import { clear } from '../../store/reducers/cart'
 
 type Installment = {
   quantity: number
@@ -29,6 +30,7 @@ const Checkout = () => {
   const [purchase, { data, isSuccess, isLoading }] = usePurchaseMutation()
   const { items } = useSelector((state: RootReducer) => state.cart)
   const [installments, setInstallments] = useState<Installment[]>([])
+  const dispatch = useDispatch()
 
   const totalPrice = getTotalPrice(items)
 
@@ -154,7 +156,13 @@ const Checkout = () => {
     }
   }, [totalPrice])
 
-  if (items.length === 0) {
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(clear())
+    }
+  }, [isSuccess, dispatch])
+
+  if (items.length === 0 && !isSuccess) {
     return <Navigate to="/" />
   }
 
