@@ -1,8 +1,6 @@
 import { Container, List } from './styles'
 import Product from '../../components/Product'
 
-import { Game } from '../../Pages/Home'
-
 import { convertToBRL } from '../../utils/utils'
 import Loader from '../../components/Loader'
 

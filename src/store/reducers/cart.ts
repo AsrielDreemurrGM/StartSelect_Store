@@ -1,7 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { Game } from '../../Pages/Home'
-
 type CartState = {
   items: Game[]
   isOpen: boolean

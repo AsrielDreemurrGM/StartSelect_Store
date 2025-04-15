@@ -2,8 +2,6 @@ import { useDispatch } from 'react-redux'
 
 import * as S from './styles'
 
-import { Game } from '../../Pages/Home'
-
 import Tag from '../Tag'
 import Button from '../Button'
 
