@@ -22,10 +22,10 @@ const Product = () => {
   return (
     <>
       <Hero game={game} />
-      <Section background="black" title="Sobre o jogo">
+      <Section $background="black" title="Sobre o jogo">
         <p>{game.description}</p>
       </Section>
-      <Section background="gray" title="Mais detalhes">
+      <Section $background="gray" title="Mais detalhes">
         <p>
           <b>Plataforma:</b> {game.details.system} <br />
           <b>Desenvolvedor:</b> {game.details.developer} <br />

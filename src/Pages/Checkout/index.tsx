@@ -276,7 +276,7 @@ const Checkout = () => {
             <>
               <TabButton
                 type="button"
-                isActive={!payWithCard}
+                $isActive={!payWithCard}
                 onClick={() => setPayWithcard(false)}
                 title="Clique para pagar via Boleto Bancário"
               >
@@ -285,7 +285,7 @@ const Checkout = () => {
               </TabButton>
               <TabButton
                 type="button"
-                isActive={payWithCard}
+                $isActive={payWithCard}
                 onClick={() => setPayWithcard(true)}
                 title="Clique para pagar via Cartão de Crédito"
               >

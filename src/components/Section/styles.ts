@@ -7,11 +7,11 @@ import { Props } from '.'
 export const Container = styled.section<Omit<Props, 'title' | 'games'>>`
   padding: 32px 0;
   background-color: ${(props) =>
-    props.background === 'black' ? colors.black : colors.gray};
+    props.$background === 'black' ? colors.black : colors.gray};
 
   ${Card} {
     background-color: ${(props) =>
-      props.background === 'gray' ? colors.black : colors.gray};
+      props.$background === 'gray' ? colors.black : colors.gray};
   }
 
   p {

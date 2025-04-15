@@ -43,7 +43,7 @@ const Gallery = ({ defaultCover, gameName, items }: Props) => {
   }
   return (
     <>
-      <Section background="black" title="Galeria">
+      <Section $background="black" title="Galeria">
         <S.Items>
           {items.map((item, index) => (
             <S.Item
