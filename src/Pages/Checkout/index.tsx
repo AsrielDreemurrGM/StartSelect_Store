@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
-import InputMask from 'react-input-mask'
+import InputMask from 'react-input-mask-next'
 
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
