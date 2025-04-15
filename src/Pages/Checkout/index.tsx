@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
+import InputMask from 'react-input-mask'
+
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
@@ -85,7 +87,7 @@ const Checkout = () => {
       cardCode: Yup.string().when((values, schema) =>
         payWithCard ? schema.required('O campo é obrigatório') : schema
       ),
-      installments: Yup.string().when((values, schema) =>
+      installments: Yup.number().when((values, schema) =>
         payWithCard ? schema.required('O campo é obrigatório') : schema
       )
     }),
@@ -100,7 +102,7 @@ const Checkout = () => {
           email: values.deliveryEmail
         },
         payment: {
-          installments: 1,
+          installments: values.installments,
           card: {
             active: payWithCard,
             code: Number(values.cardCode),
@@ -111,17 +113,15 @@ const Checkout = () => {
               name: values.cardOwner
             },
             expires: {
-              month: 1,
-              year: 2024
+              month: Number(values.expiresMonth),
+              year: Number(values.expiresYear)
             }
           }
         },
-        products: [
-          {
-            id: 1,
-            price: 10
-          }
-        ]
+        products: items.map((item) => ({
+          id: item.id,
+          price: item.prices.current as number
+        }))
       })
     }
   })
@@ -228,7 +228,8 @@ const Checkout = () => {
                 </InputGroup>
                 <InputGroup>
                   <label htmlFor="cpf">CPF</label>
-                  <input
+                  <InputMask
+                    mask="999.999.999-99"
                     id="cpf"
                     type="text"
                     name="cpf"
@@ -313,7 +314,8 @@ const Checkout = () => {
                       <label htmlFor="cpfCardOwner">
                         CPF do Titular do Cartão
                       </label>
-                      <input
+                      <InputMask
+                        mask="999.999.999-99"
                         id="cpfCardOwner"
                         type="text"
                         name="cpfCardOwner"
@@ -343,7 +345,8 @@ const Checkout = () => {
                     </InputGroup>
                     <InputGroup>
                       <label htmlFor="cardNumber">Número do Cartão</label>
-                      <input
+                      <InputMask
+                        mask="9999 9999 9999 9999"
                         id="cardNumber"
                         type="text"
                         name="cardNumber"
@@ -355,7 +358,8 @@ const Checkout = () => {
                     </InputGroup>
                     <InputGroup maxWidth="123px">
                       <label htmlFor="expiresMonth">Mês de Vencimento</label>
-                      <input
+                      <InputMask
+                        mask="99"
                         id="expiresMonth"
                         type="text"
                         name="expiresMonth"
@@ -369,7 +373,8 @@ const Checkout = () => {
                     </InputGroup>
                     <InputGroup maxWidth="123px">
                       <label htmlFor="expiresYear">Ano de Vencimento</label>
-                      <input
+                      <InputMask
+                        mask="99"
                         id="expiresYear"
                         type="text"
                         name="expiresYear"
@@ -383,7 +388,8 @@ const Checkout = () => {
                     </InputGroup>
                     <InputGroup maxWidth="48px">
                       <label htmlFor="cardCode">CVV</label>
-                      <input
+                      <InputMask
+                        mask="999"
                         id="cardCode"
                         type="text"
                         name="cardCode"
@@ -408,7 +414,10 @@ const Checkout = () => {
                         }
                       >
                         {installments.map((installment) => (
-                          <option key={installment.quantity}>
+                          <option
+                            value={installment.quantity}
+                            key={installment.quantity}
+                          >
                             {installment.quantity}x de{' '}
                             {installment.formattedAmount}
                           </option>
