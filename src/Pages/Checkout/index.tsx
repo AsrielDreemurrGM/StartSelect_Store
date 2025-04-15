@@ -328,7 +328,7 @@ const Checkout = () => {
                       />
                     </InputGroup>
                   </Row>
-                  <Row marginTop="24px">
+                  <Row $marginTop="24px">
                     <InputGroup>
                       <label htmlFor="cardDisplayName">Nome no Cartão</label>
                       <input
@@ -356,7 +356,7 @@ const Checkout = () => {
                         className={checkInputError('cardNumber') ? 'error' : ''}
                       />
                     </InputGroup>
-                    <InputGroup maxWidth="123px">
+                    <InputGroup $maxWidth="123px">
                       <label htmlFor="expiresMonth">Mês de Vencimento</label>
                       <InputMask
                         mask="99"
@@ -371,7 +371,7 @@ const Checkout = () => {
                         }
                       />
                     </InputGroup>
-                    <InputGroup maxWidth="123px">
+                    <InputGroup $maxWidth="123px">
                       <label htmlFor="expiresYear">Ano de Vencimento</label>
                       <InputMask
                         mask="99"
@@ -386,7 +386,7 @@ const Checkout = () => {
                         }
                       />
                     </InputGroup>
-                    <InputGroup maxWidth="48px">
+                    <InputGroup $maxWidth="48px">
                       <label htmlFor="cardCode">CVV</label>
                       <InputMask
                         mask="999"
@@ -400,8 +400,8 @@ const Checkout = () => {
                       />
                     </InputGroup>
                   </Row>
-                  <Row marginTop="24px">
-                    <InputGroup maxWidth="150px">
+                  <Row $marginTop="24px">
+                    <InputGroup $maxWidth="150px">
                       <label htmlFor="installments">Parcelamento</label>
                       <select
                         id="installments"

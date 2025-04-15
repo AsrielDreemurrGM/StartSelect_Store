@@ -2,11 +2,11 @@ import styled from 'styled-components'
 import { colors } from '../../styles/styles'
 
 type InputGroupProps = {
-  maxWidth?: string
+  $maxWidth?: string
 }
 
 type RowProps = {
-  marginTop?: string
+  $marginTop?: string
 }
 
 type TabButtonProps = {
@@ -17,13 +17,13 @@ export const Row = styled.div<RowProps>`
   display: flex;
   align-items: flex-end;
   gap: 24px;
-  margin-top: ${(props) => props.marginTop || '0'};
+  margin-top: ${(props) => props.$marginTop || '0'};
 `
 
 export const InputGroup = styled.div<InputGroupProps>`
   flex: auto;
 
-  max-width: ${(props) => props.maxWidth || 'auto'};
+  max-width: ${(props) => props.$maxWidth || 'auto'};
 
   label {
     display: block;
