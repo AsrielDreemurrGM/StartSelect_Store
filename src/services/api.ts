@@ -40,39 +40,39 @@ type PurchasePayload = {
 
 const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://ebac-fake-api.vercel.app/api/eplay'
+    baseUrl: 'https://start-select-api.vercel.app'
   }),
   endpoints: (builder) => ({
     getFeaturedGame: builder.query<Game, void>({
-      query: () => 'destaque'
+      query: () => 'api/destaque'
     }),
     getOnSaleGames: builder.query<Game[], void>({
-      query: () => 'promocoes'
+      query: () => 'jsons/promocoes.json'
     }),
     getComingSoon: builder.query<Game[], void>({
-      query: () => 'em-breve'
+      query: () => 'jsons/em-breve.json'
     }),
     getActionGames: builder.query<Game[], void>({
-      query: () => 'acao'
+      query: () => 'jsons/acao.json'
     }),
     getSportgames: builder.query<Game[], void>({
-      query: () => 'esportes'
+      query: () => 'jsons/esportes.json'
     }),
     getSimulationGames: builder.query<Game[], void>({
-      query: () => 'simulacao'
+      query: () => 'jsons/simulacao.json'
     }),
     getFightingGames: builder.query<Game[], void>({
-      query: () => 'luta'
+      query: () => 'jsons/luta.json'
     }),
     getRpgGames: builder.query<Game[], void>({
-      query: () => 'rpg'
+      query: () => 'jsons/rpg.json'
     }),
     getGameDetails: builder.query<Game, string>({
-      query: (id) => `jogos/${id}`
+      query: (id) => `api/jogos/${id}`
     }),
     purchase: builder.mutation<PurchaseResponse, PurchasePayload>({
       query: (body) => ({
-        url: 'checkout',
+        url: 'api/checkout',
         method: 'POST',
         body
       })
